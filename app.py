@@ -41,10 +41,10 @@ with col2:
                       size='danceability', color='track_genre')
     st.plotly_chart(fig2, use_container_width=True)
     # --- TABELA DE DESTAQUES ---
-st.divider() # Cria uma linha divisória para organizar o visual
+st.divider() # Cria uma linha divisória para organizar o visual (organização)
 st.subheader(f"Top 5 Músicas Populares em: {', '.join(selecao_generos)}")
 
-# Pegamos o dataframe filtrado, ordenamos pela popularidade e mostramos as colunas principais
+# Dataframe filtrado, ordenado pela popularidade e mostrando as colunas principais
 top_musicas = df_filtrado.sort_values(by='popularity', ascending=False).head(5)
 
 # Exibindo a tabela com colunas selecionadas para não poluir o site
@@ -66,7 +66,7 @@ with kpi3:
 # Prepara o arquivo para baixar
 csv = df_filtrado.to_csv(index=False).encode('utf-8')
 
-st.sidebar.markdown("---") # Adiciona uma linha na lateral para separar
+st.sidebar.markdown("---") 
 st.sidebar.download_button(
     label="📥 Baixar dados filtrados (CSV)",
     data=csv,
@@ -74,4 +74,17 @@ st.sidebar.download_button(
     mime='text/csv',
 
 )
+st.divider() 
+
+st.subheader("Conclusões da Análise")
+
+st.markdown("""
+A partir dos dados visualizados, podemos observar padrões interessantes sobre o comportamento musical:
+* **Energia vs. Positividade:** Gêneros como o **Reggaeton** tendem a apresentar alta positividade (valence) e energia, sendo ideais para momentos de descontração.
+* **Diversidade de Batida:** A dançabilidade varia drasticamente entre os gêneros, mostrando como a estrutura rítmica define a intenção da música (festa vs. foco).
+* **O Poder dos Dados na Música:** Esta análise demonstra que o que sentimos ao ouvir uma playlist pode ser quantificado e transformado em insights para curadoria e marketing musical.
+""")
+
+st.info("💡 **Dica de Portfólio:** Este projeto utilizou técnicas de limpeza de dados em Python, visualização interativa com Plotly e deploy automatizado via Streamlit Cloud.")
+
 
