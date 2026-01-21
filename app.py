@@ -85,6 +85,7 @@ A partir dos dados visualizados, podemos observar padrões interessantes sobre o
 * **O Poder dos Dados na Música:** Esta análise demonstra que o que sentimos ao ouvir uma playlist pode ser quantificado e transformado em insights para curadoria e marketing musical.
 """)
 
-st.info("💡 **Dica de Portfólio:** Este projeto utilizou técnicas de limpeza de dados em Python, visualização interativa com Plotly e deploy automatizado via Streamlit Cloud.")
+st.info("🛠️ **Stack Tecnológica:** Este dashboard foi desenvolvido em **Python**, utilizando **Pandas** para manipulação de dados, **Plotly** para visualizações interativas e implantado via **Streamlit Cloud**.")
+
 
 
