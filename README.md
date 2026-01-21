@@ -12,7 +12,7 @@ Você pode acessar a versão online deste projeto aqui: **************
  Essa e outras perguntas nos fazem refletir não e mesmo? Rs
 
  🛠️ Tecnologias Utilizadas
-* **Python 3.10
+* Python 3.10
 * **Pandas**: Manipulação e tratamento de dados (Datasets).
 * **Streamlit**: Criação da interface web e filtros interativos.
 * **Plotly**: Visualizações de dados dinâmicas e storytelling visual.
