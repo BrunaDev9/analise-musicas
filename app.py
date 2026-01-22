@@ -12,7 +12,7 @@ st.markdown("Explore como diferentes gêneros se comportam em termos de batida e
 # Carregar os dados
 df = pd.read_csv('dataset.csv')
 
-# --- BARRA LATERAL (FILTROS) ---
+# BARRA LATERAL (FILTROS) 
 st.sidebar.header("Filtros")
 generos_disponiveis = df['track_genre'].unique()
 selecao_generos = st.sidebar.multiselect(
@@ -21,11 +21,11 @@ selecao_generos = st.sidebar.multiselect(
     default=['rock', 'pop', 'hip-hop', 'reggaeton', 'kids']
 )
 
-# --- FILTRAGEM ---
+# FILTRAGEM 
 df_filtrado = df[df['track_genre'].isin(selecao_generos)]
 resumo = df_filtrado.groupby('track_genre')[['danceability', 'energy', 'valence']].mean().reset_index()
 
-# --- VISUALIZAÇÃO ---
+# VISUALIZAÇÃO 
 col1, col2 = st.columns(2)
 
 with col1:
@@ -40,8 +40,8 @@ with col2:
     fig2 = px.scatter(resumo, x='valence', y='energy', text='track_genre',
                       size='danceability', color='track_genre')
     st.plotly_chart(fig2, use_container_width=True)
-    # --- TABELA DE DESTAQUES ---
-st.divider() # Cria uma linha divisória para organizar o visual (organização)
+    # TABELA DE DESTAQUES 
+st.divider() # Cria uma linha divisória para organizar o visual 
 st.subheader(f"Top 5 Músicas Populares em: {', '.join(selecao_generos)}")
 
 # Dataframe filtrado, ordenado pela popularidade e mostrando as colunas principais
@@ -50,7 +50,7 @@ top_musicas = df_filtrado.sort_values(by='popularity', ascending=False).head(5)
 # Exibindo a tabela com colunas selecionadas para não poluir o site
 st.table(top_musicas[['track_name', 'artists', 'popularity', 'track_genre']])
 
-# --- CARDS DE RESUMO (KPIs) ---
+# CARDS DE RESUMO (KPIs) 
 st.divider()
 st.subheader("Resumo Estatístico da Seleção")
 kpi1, kpi2, kpi3 = st.columns(3)
@@ -62,7 +62,7 @@ with kpi2:
 with kpi3:
     st.metric("Média de Energia", f"{df_filtrado['energy'].mean():.2f}")
 
-# --- BOTÃO DE DOWNLOAD (NA BARRA LATERAL) ---
+# BOTÃO DE DOWNLOAD (NA BARRA LATERAL) 
 # Prepara o arquivo para baixar
 csv = df_filtrado.to_csv(index=False).encode('utf-8')
 
@@ -86,6 +86,7 @@ A partir dos dados visualizados, podemos observar padrões interessantes sobre o
 """)
 
 st.info("🛠️ **Stack Tecnológica:** Este dashboard foi desenvolvido em **Python**, utilizando **Pandas** para manipulação de dados, **Plotly** para visualizações interativas e implantado via **Streamlit Cloud**.")
+
 
 
 
