@@ -87,31 +87,8 @@ A partir dos dados visualizados, podemos observar padrões interessantes sobre o
 
 st.info("🛠️ **Stack Tecnológica:** Este dashboard foi desenvolvido em **Python**, utilizando **Pandas** para manipulação de dados, **Plotly** para visualizações interativas e implantado via **Streamlit Cloud**.")
 
-# 5. Gráfico de Evolução por Década (Cor Personalizada)
-        st.subheader("📈 Evolução da Repetitividade por Década")
-        if 'Década' in df_br.columns:
-            # Agrupa por década e tira a média do score
-            evolucao = df_br.groupby('Década')['Chiclete_Score'].mean().reset_index()
-            
-            # Criando o gráfico com cor Rosa Chiclete
-            fig_evolucao = px.line(evolucao, x='Década', y='Chiclete_Score', 
-                                   title="Média de Repetição nas Letras (1970 - 2025)",
-                                   markers=True,
-                                   color_discrete_sequence=['#FF69B4']) # Rosa Chiclete
-            
-            # Ajustando o nome do eixo lateral para ficar mais profissional
-            fig_evolucao.update_layout(
-                yaxis_title="Índice Chiclete (%)",
-                xaxis_title="Década de Lançamento"
-            )
-        
-            st.plotly_chart(fig_evolucao, use_container_width=True)
-            
-    else:
-        st.error("A coluna 'Letra' não foi encontrada no arquivo musicas_perifericas.csv")
 
-except FileNotFoundError:
-    st.error("Arquivo 'musicas_perifericas.csv' não encontrado. Verifique se ele está na mesma pasta do app.py")
+
 
 
 
